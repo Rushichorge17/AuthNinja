@@ -9,8 +9,7 @@ import { Badge } from "@/components/ui/badge";
 interface UserInfoProps {
   user?: ExtendedUser;
   label: string;
-};
-
+}
 
 export const UserInfo = ({
   user,
@@ -57,17 +56,19 @@ export const UserInfo = ({
           </p>
         </div>
 
+        {/* Two Factor Authentication */}
         <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
           <p className="text-sm font-medium">
             Two Factor Authentication
           </p>
+          {/* Adjusted logic for Badge variant */}
           <Badge 
-            variant={user?.isTwoFactorEnabled ? "success" : "destructive"}
+            variant={user?.isTwoFactorEnabled ? "default" : "destructive"}
           >
             {user?.isTwoFactorEnabled ? "ON" : "OFF"}
           </Badge>
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
